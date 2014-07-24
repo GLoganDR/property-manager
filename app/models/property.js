@@ -19,7 +19,7 @@ Renter.prototype.work = function(work){
       this._cash += Math.floor(Math.random() * 7001) + 3000;
       break;
     case 'Coder':
-      this._cash += Math.floor(Math.random() * 600) + 1000;
+      this._cash += Math.floor(Math.random() * 6001) + 1000;
       break;
     case 'Waiter':
       this._cash += Math.floor(Math.random() * 201) + 50;
