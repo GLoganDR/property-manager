@@ -4,4 +4,7 @@ node_js:
 services:
   - mongodb
   - redis-server
-
+notifications:
+  email: false
+after_script:
+  - npm run coveralls
