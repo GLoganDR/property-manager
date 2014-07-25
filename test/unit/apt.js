@@ -14,11 +14,11 @@ var Apartment;
 describe('Apartment', function(){
   
   before(function(done){//forces it to connect to mongo before running the test//
-    connect('property-management-test', function(){
+    connect('property-manager-test', function(){
       Apartment = require('../../app/models/apt');
     done();
     });
-  })
+  });
   // clears out apartments before running test (keeps it from having more apartments than declared and failing test)//
   beforeEach(function(done){
     global.mongodb.collection('apartments').remove(function(){
@@ -106,7 +106,7 @@ describe('Apartment', function(){
     });
   });
   describe('#save', function(){
-    it('should save everything into database', function(done){
+    it('should insert into database', function(done){
       var a1 = new Apartment('A1');
         a1.save(function(){
           expect(a1._id).to.be.instanceof(Mongo.ObjectID);

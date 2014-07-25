@@ -9,26 +9,31 @@ function Apartment(name){
   this.renters = [];
 }
 
+//how to create a "getter"//
+//Object.defineProperty(Apartment, 'collection', {
+//  get: function(){
+//    return global.mongodb.collection('apartments');
+//  }
+//});
+
 Apartment.prototype.save = function(cb){
-  cApt.save(this, function(err, obj){
-  cb();
-  });
+  cApt.save(this, cb);
 };
 
 Apartment.prototype.area = function(){
-  var sum = 0;
+  var area = 0;
   for(var i = 0; i < this.rooms.length; i++){
-      sum += this.rooms[i].area();
+      area += this.rooms[i].area();
      }
-     return sum;
+     return area;
 };
 
 Apartment.prototype.cost = function(){
-    var sum = 0;
+    var cost= 0;
     for(var i = 0; i < this.rooms.length; i++){
-        sum += this.rooms[i].cost();
+        cost += this.rooms[i].cost();
         }
-        return sum;
+        return cost;
 };
 
 Apartment.prototype.bedrooms = function(){
@@ -64,7 +69,7 @@ Apartment.prototype.collectRent = function(){
   this.purgeEvicted();
 };
 
-Apartment.find = function(query, cb){
+Apartment.find = function(query, cb){// query is an object, cb is a function//
   cApt.find(query).toArray(function(err, apartments){
     cb(apartments);
   });
@@ -75,8 +80,6 @@ Apartment.findById = function(query, cb){
     cb(apartments._id);
   });
 };
-
-
 
 
 module.exports = Apartment;
