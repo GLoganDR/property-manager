@@ -39,7 +39,7 @@ Apartment.prototype.isAvailable = function(){
   for(var i = 0; i < this.renters.length; i++){
   //  if(this.rooms[i].name === 'bedroom'){
    //   roomCount += 1;
-     if(this.bedrooms !== this.renters.length){
+     if(this.bedrooms > this.renters.length){
        this.isAvailable = true;
      }else{
        this.isAvailable = false;
