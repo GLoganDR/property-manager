@@ -30,7 +30,7 @@ Renter.prototype.work = function(work){
 };
 
 Renter.prototype.payRent = function(amount){
-      if(this.isEvicted){return;}
+      if(this._isEvicted){return;}
 
       amount = parseInt(amount);
       this._isEvicted = this._cash < amount;
@@ -46,6 +46,8 @@ Renter.prototype.party = function(){
   var volume = Math.floor(Math.random() * 10) + 1;
   this._isEvicted = volume > 8;
 };
+
+
 
 
 
